@@ -3,13 +3,12 @@ from typing import List
 from random import randrange
 
 
-#TODO: remove 0 from the start somewhere
-
 def gen(c, d, n, P):
     assert P > 1
     for tup in product([1, 0], repeat=n):
         tup = list(tup)
         if is_legal_vector(tup, c, d, P):
+            # print(tup)
             start_index = randrange(n)
             max_error_index = min(n-1, start_index + P - 2)
             delete_index = randrange(start_index, max_error_index+1)
@@ -39,21 +38,9 @@ def sum_mod2(vector: List[int]) -> int:
 def reconstruct(vector: List[int], d: int, c: int, P: int, index: int, realIndex) -> List[int]:
     missing_value = 0 if sum_mod2(vector) == d else 1
     start = index
-
-    end = min(len(vector), index + P - 2)
-
-    # handle delete of 1
-    errd_vector = vector[index: end + 1]
-
-
-
-    if missing_value == 1:
-        return 1/0
-        zero_count_to_the_right = count()
-
-
-
+    end = min(len(vector) - 1, index + P - 2)
+    # assert start <= realIndex <= end
 
 if __name__ == "__main__":
-    gen(c=2, d=1, n=5, P=2)
+    gen(c=2, d=1, n=6, P=3)
     print("done")
