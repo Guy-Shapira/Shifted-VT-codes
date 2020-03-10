@@ -48,5 +48,5 @@ def reconstruct_insertion(vector: List[int], c: int, d: int, u:int, P:int) -> Li
             if errd[i] == 0:
                 count_zeros += 1
 
-    del vector_copy[to_delete_index]
+    vector_copy.pop(to_delete_index)
     return vector_copy
