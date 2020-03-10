@@ -1,7 +1,7 @@
 # Shifted VT-Codes 
 A Shifted VT-Code is an error correcting code that can correct a single insertion or deletion.
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue)](./CONTRIBUTING.md)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue?style=plastic)](./CONTRIBUTING.md)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Guy-Shapira/Shifted-VT-codes?style=plastic)
 
 The redundancy is log(P) + 1, ie. if a given word is of length n, then it can be encoded in n + log(P) + 1 bits st. a single insertion/deletion can be detected and corrected.
