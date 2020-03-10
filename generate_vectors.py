@@ -1,6 +1,8 @@
 from itertools import product
 from typing import List
 from random import randrange
+from utils import *
+
 
 
 def gen(c, d, n, P):
@@ -31,18 +33,6 @@ def gen(c, d, n, P):
             #         reconstruct(saved_fuck_up, d, c, P, i, index)
             #     fucked_tup.pop(index)
             #     saved_fuck_up = fucked_tup.copy()
-
-
-def is_legal_vector(vector: List[int], c: int, d: int, P: int) -> bool:
-    return weighted_sum(vector) % P == c and sum(vector) % 2 == d
-
-
-def weighted_sum(vector: List[int]) -> int:
-    return sum([(i+1) * x for i, x in zip(range(0, len(vector)), vector)])
-
-
-def sum_mod2(vector: List[int]) -> int:
-    return sum(vector) % 2
 
 
 def reconstruct(vector: List[int], d: int, c: int, P: int, index: int, realIndex) -> List[int]:

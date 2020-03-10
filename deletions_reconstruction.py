@@ -1,10 +1,25 @@
-from utils import *
+from utils import positive_mod
+from utils import sum_mod2
+from typing import List
 
 
 def reconstruct_deletion(vector: List[int], c: int, d: int, u: int, P: int) -> List[int]:
+    """Reconstruct the vector after a deletion has occured.
+    does not change the original vector (does not work in place).
+
+        Parameters:
+                vector (List[int]): the vector after the deletion has occured.
+                c (int): the weighted sum of the (original) vector is congruent to c (mod P).
+                d (int): the sum of the (original) vector is congruent to d (mod 2).
+                u (int): the first index where a deletion may have occured.
+                P (int): the max distance of the deletion from u.
+        
+        Returns:
+                reconstructed_vector (List[int]): the vector after reconstructing the original vector.
+    """
+    vector = vector.copy() # working on a copy, so we won't change the passed vector
     del_val = 0 if sum_mod2(vector) == d else 1
-    # this is u + P - 2 from the paper
-    end = min(len(vector) - 1, u + P - 2)
+    end = min(len(vector) - 1, u + P - 2) # this is u + P - 2 from the paper
     errd = vector.copy()
     errd = errd[u:end + 1]
 
