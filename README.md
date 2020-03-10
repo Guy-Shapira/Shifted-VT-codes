@@ -17,7 +17,7 @@ print(codeword)  # output is '[0, 0, 0, 1, 0, 1, 1]'
 where n is a length of a codeword, c is the weighted sum, d is the parity and P is the maximum known distance of an error.
 
 ## Decoding:
-decoding works if no error has occured, or if a single error (deletion/insertion) has occured.
+decoding also works if no error has occured, or if a single error (deletion/insertion) has occured.
 
 continuation of the previous example:
 ```python
@@ -36,3 +36,8 @@ print(decoded)  # output is '[0, 1, 1]'
 ```
 
 correcting an insertion or deletion is identical in usage, thus only the index is passed, without the error type.
+
+## Running the tests:
+unit tests are provided, and are written using the `unittest` framework built into python.
+
+configure the framework to look for tests in files named `test_*`.
