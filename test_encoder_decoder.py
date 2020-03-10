@@ -5,6 +5,7 @@ from random import randrange
 from math import ceil, log2 as log
 import ShiftedVTCode
 
+# TODO: consider changing these from global parameters to class parameters or something
 n = 18
 c = 6
 d = 1

@@ -1,5 +1,4 @@
-from utils import positive_mod
-from utils import sum_mod2
+from utils import positive_mod, sum_mod2
 from typing import List
 
 

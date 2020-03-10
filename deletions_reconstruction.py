@@ -1,8 +1,6 @@
-from utils import positive_mod
-from utils import sum_mod2
+from utils import positive_mod, sum_mod2
 from typing import List
 
-#TODO: fix imoprts
 
 def reconstruct_deletion(vector: List[int], c: int, d: int, u: int, P: int) -> List[int]:
     """Reconstruct the vector after a deletion has occured.
