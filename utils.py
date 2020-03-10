@@ -8,7 +8,7 @@ def is_legal_vector(vector: List[int], c: int, d: int, P: int) -> bool:
 
 
 def weighted_sum(vector: List[int]) -> int:
-    return sum([(i+1) * x for i, x in zip(range(0, len(vector)), vector)])
+    return sum([(i + 1) * x for i, x in enumerate(vector)])
 
 
 def sum_mod2(vector: List[int]) -> int:

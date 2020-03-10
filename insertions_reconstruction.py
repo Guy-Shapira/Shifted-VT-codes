@@ -17,13 +17,13 @@ def reconstruct_insertion(vector: List[int], c: int, d: int, u:int, P:int) -> Li
         Returns:
                 reconstructed_vector (List[int]): the vector after reconstructing the original vector.
     """
-    vector = vector.copy()
-    ins_val = 0 if sum_mod2(vector) == d else 1
-    end = min(len(vector) - 1, u + P - 1) # this is u + P - 2 from the paper
-    errd = vector.copy()
+    vector_copy = vector.copy()
+    ins_val = 0 if sum_mod2(vector_copy) == d else 1
+    end = min(len(vector_copy) - 1, u + P - 1) # this is u + P - 2 from the paper
+    errd = vector_copy.copy()
     errd = errd[u:end + 1]
 
-    c_tag = (sum([i * e for i, e in enumerate(vector[:end + 1])]) + sum([((end + 1) + i - 1) * e for i, e in enumerate(vector[end + 1:])])) % P
+    c_tag = (sum([i * e for i, e in enumerate(vector_copy[:end + 1])]) + sum([((end + 1) + i - 1) * e for i, e in enumerate(vector_copy[end + 1:])])) % P
     delta = c_tag - c
     delta = positive_mod(delta, P)
 
@@ -49,5 +49,5 @@ def reconstruct_insertion(vector: List[int], c: int, d: int, u:int, P:int) -> Li
             if errd[i] == 0:
                 count_zeros += 1
 
-    del vector[to_delete_index]
-    return vector
+    del vector_copy[to_delete_index]
+    return vector_copy

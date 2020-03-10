@@ -2,6 +2,7 @@ from utils import positive_mod
 from utils import sum_mod2
 from typing import List
 
+#TODO: fix imoprts
 
 def reconstruct_deletion(vector: List[int], c: int, d: int, u: int, P: int) -> List[int]:
     """Reconstruct the vector after a deletion has occured.
@@ -17,13 +18,13 @@ def reconstruct_deletion(vector: List[int], c: int, d: int, u: int, P: int) -> L
         Returns:
                 reconstructed_vector (List[int]): the vector after reconstructing the original vector.
     """
-    vector = vector.copy() # working on a copy, so we won't change the passed vector
-    del_val = 0 if sum_mod2(vector) == d else 1
-    end = min(len(vector) - 1, u + P - 2) # this is u + P - 2 from the paper
-    errd = vector.copy()
+    vector_copy = vector.copy() # working on a copy, so we won't change the passed vector
+    del_val = 0 if sum_mod2(vector_copy) == d else 1
+    end = min(len(vector_copy) - 1, u + P - 2) # this is u + P - 2 from the paper
+    errd = vector_copy.copy()
     errd = errd[u:end + 1]
 
-    c_tag = (sum([i * e for i, e in enumerate(vector[:end + 1])]) + sum([((end + 1) + i + 1) * e for i, e in enumerate(vector[end + 1:])])) % P
+    c_tag = (sum([i * e for i, e in enumerate(vector_copy[:end + 1])]) + sum([((end + 1) + i + 1) * e for i, e in enumerate(vector_copy[end + 1:])])) % P
 
     delta = c - c_tag
     delta = positive_mod(delta, P)
@@ -50,5 +51,5 @@ def reconstruct_deletion(vector: List[int], c: int, d: int, u: int, P: int) -> L
             if errd[i] == 0:
                 count_zeros += 1
 
-    vector.insert(deleted_index, del_val)
-    return vector
+    vector_copy.insert(deleted_index, del_val)
+    return vector_copy
