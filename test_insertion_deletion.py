@@ -6,7 +6,7 @@ from deletions_reconstruction import reconstruct_deletion
 from utils import is_legal_vector
 import unittest
 
-
+# TODO: consider changing these from global parameters to class parameters or something
 n = 18
 c = 6
 d = 1
