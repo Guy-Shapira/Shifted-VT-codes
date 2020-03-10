@@ -15,7 +15,7 @@ def sum_mod2(vector: List[int]) -> int:
     return sum(vector) % 2
 
 
-def positive_mod(value:int, mod:int) -> int:
+def positive_mod(value: int, mod: int) -> int:
     while value < 0:
         value += mod
     return value

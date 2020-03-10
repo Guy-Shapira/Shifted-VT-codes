@@ -2,7 +2,7 @@ from utils import positive_mod, sum_mod2
 from typing import List
 
 
-def reconstruct_insertion(vector: List[int], c: int, d: int, u:int, P:int) -> List[int]:
+def reconstruct_insertion(vector: List[int], c: int, d: int, u: int, P: int) -> List[int]:
     """Reconstruct the vector after an insertion has occured.
     does not change the original vector (does not work in place).
 
@@ -12,7 +12,7 @@ def reconstruct_insertion(vector: List[int], c: int, d: int, u:int, P:int) -> Li
                 d (int): the sum of the (original) vector is congruent to d (mod 2).
                 u (int): the first index where a insertion may have occured.
                 P (int): the max distance of the insertion from u.
-        
+
         Returns:
                 reconstructed_vector (List[int]): the vector after reconstructing the original vector.
     """

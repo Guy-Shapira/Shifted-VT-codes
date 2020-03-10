@@ -38,7 +38,6 @@ class TestShiftedVTCodes(unittest.TestCase):
                     reconstructed = self.vtcode.decode(encoded, start_index)
                     self.assertTrue(reconstructed == vector, 'Insertion error!\nvector: {}\nencoded: {}\nreconstructed: {}'.format(vector, encoded, reconstructed))
                     encoded = original_encoded
-            
 
             for start_index in range(0, n - 1):
                     max_error_index = min(n - 1, start_index + P - 2)

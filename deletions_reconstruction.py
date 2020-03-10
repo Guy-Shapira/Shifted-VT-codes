@@ -12,13 +12,13 @@ def reconstruct_deletion(vector: List[int], c: int, d: int, u: int, P: int) -> L
                 d (int): the sum of the (original) vector is congruent to d (mod 2).
                 u (int): the first index where a deletion may have occured.
                 P (int): the max distance of the deletion from u.
-        
+
         Returns:
                 reconstructed_vector (List[int]): the vector after reconstructing the original vector.
     """
-    vector_copy = vector.copy() # working on a copy, so we won't change the passed vector
+    vector_copy = vector.copy()  # working on a copy, so we won't change the passed vector
     del_val = 0 if sum_mod2(vector_copy) == d else 1
-    end = min(len(vector_copy) - 1, u + P - 2) # this is u + P - 2 from the paper
+    end = min(len(vector_copy) - 1, u + P - 2)  # this is u + P - 2 from the paper
     errd = vector_copy.copy()
     errd = errd[u:end + 1]
 

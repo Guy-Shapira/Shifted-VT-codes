@@ -22,7 +22,6 @@ class ShiftedVTCode:
         self.d = d
         self.P = P
         self.c = c
-    
 
     def _remove_redudancy(self, vector: List[int]):
         vector.pop(self.P - 1)
@@ -31,26 +30,24 @@ class ShiftedVTCode:
             index = (2 ** i) - 1
             vector.pop(index)
 
-
     def encode(self, vector: List[int]) -> List[int]:
         """Encodes the given word into a word in the codespace.
-        
+
             Parameters:
                     vector (List[int]): the word to encode.
-            
+
             Returns:
                     a word from the codeword.
         """
-        if len(vector) > self.n - self.redundancy:
+        if len(vector) != self.n - self.redundancy:
             raise ValueError("Invalid vector length! cannot map to a legal codeword")
 
         vector_copy = vector.copy()
-        vector_copy += [0 for _ in range(self.n - self.redundancy - len(vector))] # pad with zeros if the word is too short
 
         for i in range(ceil(log(self.P))):
             index = (2 ** i) - 1
             vector_copy.insert(index, 0)
-        
+
         vector_copy.insert(self.P - 1, 0)
 
         wt = weighted_sum(vector_copy)
@@ -61,15 +58,13 @@ class ShiftedVTCode:
             if diff >= index + 1:
                 vector_copy[index] = 1
                 diff -= index + 1
-        
+
         parity = sum(vector_copy) % 2
 
         if parity != self.d:
             vector_copy[self.P - 1] = 1
 
-        # assert is_legal_vector(vector_copy, self.c, self.d, self.P) # TODO: restore
         return vector_copy
-    
 
     def decode(self, vector: List[int], u: int = -1) -> List[int]:
         """Decodes the given codeword (might have deletions/insertions) to the original word.
@@ -77,7 +72,7 @@ class ShiftedVTCode:
             Parameters:
                     vector (List[int]): a word to decode to the original word.
                     u (int): the first index at which an error may have occured (upto P spaces to the right).
-            
+
             Returns:
                     decoded_vector (List[int]): the original word.
         """
