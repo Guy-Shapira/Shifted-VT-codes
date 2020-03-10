@@ -6,6 +6,32 @@ this repository implements the algorithms as described in the  C. Schoeny, A. Wa
 # Usage:
 
 ## Encoding:
-`word
-encoder = ShiftedVTCode.ShiftedVTCode(n, c, d, P)
-encoder.encode(` where n is a length of a codeword
+```python
+word = [0, 1, 1]
+encoder = ShiftedVTCode.ShiftedVTCode(n=7, c=2, d=1, P=5)
+codeword = encoder.encode(word)
+print(codeword)  # output is '[0, 0, 0, 1, 0, 1, 1]'
+```
+
+where n is a length of a codeword, c is the weighted sum, d is the parity and P is the maximum known distance of an error.
+
+## Decoding:
+decoding works if no error has occured, or if a single error (deletion/insertion) has occured.
+
+continuation of the previous example:
+```python
+word = [0, 1, 1]
+encoder = ShiftedVTCode.ShiftedVTCode(n=7, c=2, d=1, P=5)
+code = encoder.encode(word)
+print(codeword)  # output is '[0, 0, 0, 1, 0, 1, 1]'
+
+# if no error has occured:
+decoded = encoder.decode(codeword)
+print(decoded)  # output is '[0, 1, 1]'
+
+# if a single error (insertion or deletion) has occured at index 1
+decoded = encoder.decode(codeword, u=0)
+print(decoded)  # output is '[0, 1, 1]'
+```
+
+correcting an insertion or deletion is identical in usage, thus only the index is passed, without the error type.
