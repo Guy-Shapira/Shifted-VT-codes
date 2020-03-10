@@ -1,3 +1,4 @@
+# Shifted VT-Codes 
 A Shifted VT-Code is an error correcting code that can correct a single insertion or deletion.
 
 The redundancy is log(P) + 1, ie. if a given word is of length n, then it can be encoded in n + log(P) + 1 bits st. a single insertion/deletion can be detected and corrected.
