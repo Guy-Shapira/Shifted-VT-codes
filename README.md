@@ -10,7 +10,7 @@ This repository implements the algorithms as described in paper: C. Schoeny, A. 
 # Code Constraint:
 Shifted VT Codes are an extension to regular VT Codes.
 
-In Shifted VT Codes,  all of codewords in the codespace are of length n, and the weighted sum of each codeword in the codespace is congruent to c (mod P) where c and P are fixed system variables, moreover the parity of each codeword is d (another system variable). P is the size of the window in which we know an error had occurred.
+In Shifted VT Codes,  all of codewords in the codespace are of length n, and the weighted sum of each codeword in the codespace is congruent to c (mod P) where c and P are code constants, moreover the parity of each codeword is d (another code constant). P is the size of the window in which we know an error had occurred.
 
 # Usage:
 
