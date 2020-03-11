@@ -1,5 +1,5 @@
 # Shifted VT-Codes 
-A Shifted VT-Code is an P bounded single deletion/insertion correcting code.
+A Shifted VT-Code is a P bounded single deletion/insertion correcting code.
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue?style=plastic)](./CONTRIBUTING.md)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Guy-Shapira/Shifted-VT-codes?style=plastic)
@@ -10,7 +10,7 @@ This repository implements the algorithms as described in paper: C. Schoeny, A. 
 # Code Constraint:
 Shifted VT Codes are an extension to regular VT Codes.
 
-In Shifted VT Codes,  all codewords in the codespace are from the length of n, and the weighted sum of the codewords is congruent to c (mod P) where c and P are fixed system variables, moreover the parity of each codeword is d (another system variable). P is the size of the window in which we know an error had occurred.
+In Shifted VT Codes,  all of codewords in the codespace are of length n, and the weighted sum of each codeword in the codespace is congruent to c (mod P) where c and P are fixed system variables, moreover the parity of each codeword is d (another system variable). P is the size of the window in which we know an error had occurred.
 
 # Usage:
 
@@ -24,9 +24,9 @@ print(codeword)  # output is '[0, 0, 0, 1, 0, 1, 1]'
 
 Where n is a length of a codeword, c is the weighted sum, d is the parity and P is the maximum known distance of an error.
 
-In the encoding we use ceil(log(P)) bits to correct the weighted sum of the given vector. We place those bits in the first ceil(log(P)) powers of two. This enable us to represent any weighted sum that is lower then P, in this case, we set the value of those bits such that the weighted sum will be congruent to c (mod P).
+In the encoding we use ceil(log(P)) bits to correct the weighted sum of the given vector. We place those bits in the first ceil(log(P)) powers of two (indices 1, 2, 4, 8, ...). This enables us to represent any weighted sum that is lower then P, in this case, we set the value of those bits such that the weighted sum will be congruent to c (mod P).
 
-The last redundancy bit is for correcting the parity of the encoded word. We place it in the P-th position in the vector (since in this placement it won't affect the weighted sum).
+The last redundancy bit is for correcting the parity of the encoded word. We place it in the P-th position in the vector (since in this index it won't affect the weighted sum).
 
 ## Decoding:
 Decoding also works if no error has occurred, or if a single error (deletion/insertion) has occurred.
